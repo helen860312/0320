@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="context-type" context="text/html;charset=utf-8">
+</head>
+<body>
+	<p id="demo"></p>
+	<canvas id="myCanvas" width="50" height="100" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<form>
+  		score:  <input type="number" id="x" value=100>
+	</form>
+	<button onclick="myFunction()">enter</button>
+	<script>
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle = "red";
+		ctx.fillRect(0, 0, 50, 100);
+		var prescore=100;
+		var score=100;
+
+		function myFunction() {
+			prescore=score;
+			score=parseFloat(document.getElementById("x").value);
+			if(prescore>score){
+				var y=setInterval(
+					function(){
+						ctx.clearRect(0, 100-prescore, 50, 100);
+						prescore--;
+						document.getElementById("demo").innerHTML = prescore;
+						ctx.fillRect(0, 100-prescore, 50, 100);
+						if(prescore==score){
+							clearInterval(y);
+						}
+					},50);
+			}
+			if(prescore<score){
+				var z=setInterval(
+					function(){
+						ctx.clearRect(0, 100-prescore, 50, 100);
+						prescore++;
+						document.getElementById("demo").innerHTML = prescore;
+						ctx.fillRect(0, 100-prescore, 50, 100);
+						if(prescore==score){
+							clearInterval(z);
+						}
+					},50);
+			}		
+		}
+	</script>
+</body>
+</html>

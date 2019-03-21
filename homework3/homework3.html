@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Please input your score:</p>
+<form>
+  		score:  <input type="number" id="x" value=1>
+</form>
+<button onclick="myFunction()">enter</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var score = parseFloat(document.getElementById("x").value);
+  var greeting;
+  if (score<60) {
+    greeting = "Come on";
+  } else {
+    greeting = "Good job";
+  }
+  document.getElementById("demo").innerHTML = greeting;
+}
+</script>
+
+</body>
+</html>

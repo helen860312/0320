@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="context-type" context="text/html;charset=utf-8">
+</head>
+<body>
+	<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+
+	<script>
+		var i=20;
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle = "red";
+		ctx.fillRect(20, 20, 50, 50);
+		var y=setInterval(function(){
+			ctx.clearRect(i, 20, 50, 50);
+			i++;
+			if(i==230){
+				i=20;
+			}
+			ctx.fillRect(i, 20, 50, 50);
+		},10);
+	</script>
+</body>
+</html>

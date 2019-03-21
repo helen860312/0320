@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<body>
+	<form>
+  		x:  <input type="number" id="x" value=1>
+  		y:	<input type="number" id="y" value=1>
+  		<select id="op">
+			<option value="1">Addition</option>
+  			<option value="2">Subtraction</option>
+  			<option value="3">Multiplication</option>
+  			<option value="4">Division</option>
+		</select>
+	</form>
+	<br>
+	<button onclick="javascript:myFunction();">Operation</button>
+	<input type="reset" value="Clear" onclick="javascript:eraseText();"> 
+	<br><br>
+    <textarea id='demo'></textarea>
+	<p id="demo"></p>	
+	<script>
+		function myFunction() {
+			var x = parseFloat(document.getElementById("x").value);
+			var y = parseFloat(document.getElementById("y").value);
+			var op = parseFloat(document.getElementById("op").value);
+			var z;
+			if(op==1){
+				z=add(x,y);
+			}
+			else if(op==2){
+				z=sub(x,y);
+			}
+			else if(op==3){
+				z=mul(x,y);
+			}		
+			else{
+				z=div(x,y);
+			}	
+			function add (x,y){
+				return x+y;
+			}
+			function sub (x,y){
+				return x-y;
+			}
+			function mul (x,y){
+				return x*y;
+			}
+			function div (x,y){
+				return x/y;
+			}
+			document.getElementById("demo").innerHTML = z;
+		}
+		function eraseText() {
+    		document.getElementById("demo").innerHTML ="";
+    		document.getElementById("x").value = 1;
+    		document.getElementById("y").value = 1;
+    		document.getElementById("op").value = 1;
+		}
+	</script>
+</body>
+</html>
